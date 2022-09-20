@@ -60,7 +60,6 @@ public class C05_WindowHandles {
         yapabilmek icin driver.switchTo().window(ListAdi.get(1)) methodu kullaniriz
          */
 
-
         // Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunu dogrulayin.
         driver.switchTo().window(windowList.get(1));
         String actualTitle2 = driver.getTitle();
