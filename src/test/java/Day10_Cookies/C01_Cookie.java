@@ -67,6 +67,8 @@ public class C01_Cookie extends TestBaseBeforeAfter {
             System.out.println(count + ".ci value: " + each.getValue());
             count++;
         }
+        Cookie name = driver.manage().getCookieNamed("skin");
+        Assert.assertFalse(cookiesSet.contains("skin"));
 
         // 8-tum cookie’leri silin ve silindigini test edin
         driver.manage().deleteAllCookies();
