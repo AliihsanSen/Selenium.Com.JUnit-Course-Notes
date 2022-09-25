@@ -26,3 +26,4 @@ public class C05_ReadExcel {
         // -sayfa 2'ye gidip satir sayisinin 6, kullanilan satir sayisinin ise 3 oldugunu test edin
     }
 }
+git s
