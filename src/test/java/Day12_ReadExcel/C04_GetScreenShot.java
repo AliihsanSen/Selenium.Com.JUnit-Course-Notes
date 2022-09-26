@@ -7,8 +7,12 @@ import org.junit.Test;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class C04_GetScreenShot extends TestBaseBeforeAfter {
 
@@ -25,8 +29,16 @@ public class C04_GetScreenShot extends TestBaseBeforeAfter {
         gecici bir file class'ından değişkene TakesScreenShot'dan oluşturduğum objeden
         getScteenshotsAs methodunu kullanarak geçici bir file methodu oluştururuz.
          */
+
+        LocalDateTime date = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYMMddHHmmss");
+        String tarih = date.format(formatter);
+        System.out.println(date);
+        System.out.println(tarih);
+
+
         File tumSayfaResmi = ts.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(tumSayfaResmi, new File("target/ekranGoruntusu/allPage.jpeg"+faker.name().name()));
+        FileUtils.copyFile(tumSayfaResmi, new File("target/ekranGoruntusu/AllPage" + tarih + ".jpeg"));
 
     }
 }
