@@ -1,4 +1,4 @@
-package Day12_ReadEcvel;
+package Day12_ReadExcel;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
