@@ -1,14 +1,13 @@
-package Day11_ReadExcel;
+package Day12_ReadEcvel;
 
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.Test;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class C05_ReadExcel {
+public class C01_ReadExcel {
 
     @Test
     public void name() throws IOException {
@@ -23,12 +22,18 @@ public class C05_ReadExcel {
         // -WorkbookFactory.create(fileInputStream)
         Workbook workbook = WorkbookFactory.create(fis);
 
-        // -sayfa 2'ye gidip satir sayisinin 6, kullanilan satir sayisinin ise 3 oldugunu test edin
-        int sonSatir = workbook.getSheet("Sayfa2").getLastRowNum();
-        System.out.println(sonSatir); // ==> 9 dondu.
+        // Excel tablosundaki tüm taabloyu konsola yazdırınız
+        int sonSatir = workbook.getSheet("Sayfa1").getLastRowNum();
+        String tablo;
+        for (int i = 0; i <= sonSatir; i++) {
+            tablo = workbook.getSheet("Sayfa1").getRow(i).getCell(0).toString() + " , " +
+                    workbook.getSheet("Sayfa1").getRow(i).getCell(1).toString() + " , " +
+                    workbook.getSheet("Sayfa1").getRow(i).getCell(2).toString() + " , " +
+                    workbook.getSheet("Sayfa1").getRow(i).getCell(3).toString();
+            System.out.println(tablo);
 
-        int kullanilanSatir = workbook.getSheet("Sayfa2").getPhysicalNumberOfRows();
-        // Excel tablsosunda kullanılan satır sayısını bu method ile alırız.
-        System.out.println(kullanilanSatir);
+
+        }
+
     }
 }
