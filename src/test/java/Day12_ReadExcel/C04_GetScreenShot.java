@@ -1,6 +1,7 @@
 package Day12_ReadExcel;
 
 import Utilities.TestBaseBeforeAfter;
+import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.OutputType;
@@ -17,6 +18,7 @@ public class C04_GetScreenShot extends TestBaseBeforeAfter {
         // Amazon sayfasına gidelim tüm sayfanın resmini alalım.
         driver.get("https://amazon.com");
 
+        Faker faker = new Faker();
         TakesScreenshot ts = (TakesScreenshot) driver;
         /*
         ==> Bir web sayfanın resmini alabilmek için TakesScreenshot class2ından obje oluşturup
@@ -24,7 +26,7 @@ public class C04_GetScreenShot extends TestBaseBeforeAfter {
         getScteenshotsAs methodunu kullanarak geçici bir file methodu oluştururuz.
          */
         File tumSayfaResmi = ts.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(tumSayfaResmi, new File("target/ekranGoruntusu/allPage.jpeg"));
+        FileUtils.copyFile(tumSayfaResmi, new File("target/ekranGoruntusu/allPage.jpeg"+faker.name().name()));
 
     }
 }
